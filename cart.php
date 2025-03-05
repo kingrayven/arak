@@ -65,7 +65,9 @@ if (isset($_GET['clear'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
+    <title> Drizzle Shopping Cart</title>
+    <link rel="icon" href="css/img/logo.png" type="image/png" sizes="16x16">
+    
     <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>

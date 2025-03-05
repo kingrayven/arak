@@ -9,7 +9,9 @@ $result = $conn->query("SELECT * FROM liquor_products");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Drizzle</title>
+    <link rel="icon" href="css/img/logo.png" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="css/index_user.css">
 </head>
 <body>
