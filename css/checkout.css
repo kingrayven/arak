@@ -1,0 +1,61 @@
+:root {
+    --primary-color: #2F1B12;
+    --secondary-color: #005F42;
+    --background-light: #ffffff;
+    --background-dark: #FFEB99;
+    --border-color: rgba(78, 54, 41, 0.2);
+    --shadow-color: rgba(78, 54, 41, 0.1);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: var(--background-dark);
+    text-align: center;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+form {
+    background: var(--background-light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--shadow-color);
+    width: 300px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid var(--border-color);
+}
+
+label {
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: left;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    width: calc(100% - 20px);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}

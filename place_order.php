@@ -1,15 +1,6 @@
 <?php
-session_start();
+include "config.php";
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbname = "liquor_store";
-
-$conn = new mysqli($host, $user, $pass, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 $customer_name = $_POST['customer_name'];
 $address = $_POST['address'];

@@ -1,0 +1,113 @@
+:root {
+    --primary-color: #2F1B12;
+    --secondary-color: #005F42;
+    --background-light: #ffffff;
+    --background-dark: #FFEB99;
+    --border-color: rgba(78, 54, 41, 0.2);
+    --shadow-color: rgba(78, 54, 41, 0.1);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-dark);
+    text-align: center;
+}
+
+h2 {
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    padding: 15px;
+    margin: 0;
+}
+
+.product {
+    display: inline-block;
+    background: var(--background-light);
+    padding: 15px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--shadow-color);
+    width: 250px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product h3 {
+    margin: 10px 0;
+    color: var(--primary-color);
+}
+
+.product p {
+    margin: 5px 0;
+    color: var(--secondary-color);
+}
+
+.product form {
+    margin-top: 10px;
+}
+
+input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    margin-right: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    text-align: center;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a.view-cart {
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: var(--secondary-color);
+    color: var(--background-light);
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    transition: all 0.3s ease-in-out;
+}
+
+a.view-cart:hover {
+    background-color: #003D2C;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px var(--shadow-color);
+}

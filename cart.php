@@ -1,15 +1,5 @@
 <?php
-session_start();
-
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbname = "liquor_store";
-
-$conn = new mysqli($host, $user, $pass, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include "config.php";
 
 // Add to cart
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -23,16 +13,51 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['cart'] = [];
     }
 
-    $_SESSION['cart'][] = [
-        "id" => $product['id'],
-        "name" => $product['name'],
-        "label" => $product['label'],
-        "price" => $product['price'],
-        "quantity" => $quantity
-    ];
+    $found = false;
+    foreach ($_SESSION['cart'] as &$item) {
+        if ($item['id'] == $product_id) {
+            $item['quantity'] += $quantity; // Update quantity if product already in cart
+            $found = true;
+            break;
+        }
+    }
+
+    if (!$found) {
+        $_SESSION['cart'][] = [
+            "id" => $product['id'],
+            "name" => $product['name'],
+            "label" => $product['label'],
+            "price" => $product['price'],
+            "quantity" => $quantity
+        ];
+    }
 }
 
-// Display cart
+// Update quantity
+if (isset($_POST['update_quantity'])) {
+    $update_id = $_POST['product_id'];
+    $new_quantity = max(1, $_POST['quantity']); // Ensure minimum quantity is 1
+
+    foreach ($_SESSION['cart'] as &$item) {
+        if ($item['id'] == $update_id) {
+            $item['quantity'] = $new_quantity;
+            break;
+        }
+    }
+}
+
+// Remove from cart
+if (isset($_GET['remove'])) {
+    $remove_id = $_GET['remove'];
+    $_SESSION['cart'] = array_filter($_SESSION['cart'], function ($item) use ($remove_id) {
+        return $item['id'] != $remove_id;
+    });
+}
+
+// Clear cart
+if (isset($_GET['clear'])) {
+    $_SESSION['cart'] = [];
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
 
@@ -55,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Total</th>
+                <th>Action</th>
             </tr>
             <?php
             $total = 0;
@@ -64,16 +90,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo "<tr>
                         <td>{$item['name']}</td>
                         <td>{$item['label']}</td>
-                        <td>\${$item['price']}</td>
-                        <td>{$item['quantity']}</td>
-                        <td>\${$subtotal}</td>
+                        <td>₱" . number_format($item['price'], 2) . "</td>
+                        <td>
+                            <form method='post' action='cart.php'>
+                                <input type='hidden' name='product_id' value='{$item['id']}'>
+                                <button type='submit' name='update_quantity' value='-' onclick='this.parentNode.quantity.value=Math.max(1, parseInt(this.parentNode.quantity.value)-1)'>-</button>
+                                <input type='number' name='quantity' value='{$item['quantity']}' min='1' style='width: 50px;'>
+                                <button type='submit' name='update_quantity' value='+' onclick='this.parentNode.quantity.value=parseInt(this.parentNode.quantity.value)+1'>+</button>
+                            </form>
+                        </td>
+                        <td>₱" . number_format($subtotal, 2) . "</td>
+                        <td><a href='cart.php?remove={$item['id']}'>Remove</a></td>
                       </tr>";
             }
             ?>
         </table>
-        <h3>Grand Total: $<?php echo number_format($total, 2); ?></h3>
-
-        <a href="checkout.php">Proceed to Checkout</a>
+        <h3>Grand Total: ₱<?php echo number_format($total, 2); ?></h3>
+        <a href="checkout.php">Proceed to Checkout</a> |
+        <a href="cart.php?clear=true">Clear Cart</a>
     <?php } else { ?>
         <p>Your cart is empty.</p>
     <?php } ?>

@@ -1,0 +1,169 @@
+/* MINIMALIST LUXURY THEME */
+:root {
+    --primary-color: #2F1B12;
+    --secondary-color: #005F42;
+    --background-light: #ffffff;
+    --background-dark: #FFEB99;
+    --border-color: rgba(78, 54, 41, 0.2);
+    --shadow-color: rgba(78, 54, 41, 0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: var(--primary-color);
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px var(--shadow-color);
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid var(--border-color);
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+}
+
+.illustration {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.illustration img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 40%;
+}
+
+.form-container {
+    width: 100%;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+label {
+    display: block;
+    text-align: left;
+    font-weight: 500;
+    margin-top: 10px;
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-top: 5px;
+    font-size: 1rem;
+    background: #f9f9f9;
+    color: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+    box-shadow: inset 0px 2px 5px var(--shadow-color);
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(78, 54, 41, 0.3);
+    background: #fff;
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    padding-right: 40px;
+    flex: 1;
+}
+
+.password-container .toggle-password {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.password-container .toggle-password:hover {
+    color: var(--secondary-color);
+}
+
+.form-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    font-weight: 600;
+    box-shadow: 0px 3px 8px var(--shadow-color);
+}
+
+.form-btn:hover {
+    background: var(--secondary-color);
+    box-shadow: 0px 4px 12px var(--shadow-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--secondary-color);
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .form-btn {
+        font-size: 0.9rem;
+    }
+}

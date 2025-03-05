@@ -1,5 +1,5 @@
 <?php
-session_start();
+include "config.php";
 if (!isset($_SESSION['store_manager'])) {
     header("Location: login.html");
     exit();
@@ -12,7 +12,7 @@ if (!isset($_SESSION['store_manager'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
