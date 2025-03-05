@@ -70,12 +70,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
     <link rel="icon" href="css/img/logo.png" type="image/png" sizes="16x16">
 
     <link rel="stylesheet" href="css/login-register.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@1,500&display=swap" rel="stylesheet">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <h1>Register To Drizzle</h1>
+   <header>
+     <h1>Register To Drizzle</h1>
+   </header>
 
     <div class="container">
         <!-- Left side (Illustration) -->

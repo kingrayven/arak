@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Successful</title>
+     <link rel="icon" href="css/img/logo.png" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="css/order_success.css">
 </head>
 <body>

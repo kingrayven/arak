@@ -23,6 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Edit Product</title>
+    <link rel="icon" href="css/img/logo.png" type="image/png" sizes="16x16">
+    
 </head>
 <body>
 

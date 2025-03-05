@@ -21,6 +21,45 @@ h2 {
     padding: 15px;
     margin: 0;
 }
+/* Header */
+.header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 20px 15px 10px 15px;
+}
+
+/* Right section with search bar and view cart button */
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Search bar styling */
+.search-input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    margin-right: 20px;
+    width: 200px; /* Adjust width as needed */
+}
+
+/* View Cart Button styling */
+.view-cart {
+    background: #005F42;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.view-cart:hover {
+    background: #2F1B12;
+}
+
 
 .product {
     display: inline-block;

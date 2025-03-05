@@ -8,6 +8,12 @@
     --shadow-color: rgba(78, 54, 41, 0.1);
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background: var(--background-light);
@@ -19,7 +25,7 @@ body {
     color: var(--primary-color);
     flex-direction: column;
     padding: 20px;
-    box-sizing: border-box;
+    text-align: center;
 }
 
 h1 {
@@ -28,57 +34,50 @@ h1 {
     margin-bottom: 15px;
     color: var(--primary-color);
     letter-spacing: 1px;
-    text-align: center;
+    font-family: Rubic, Oswald, italic;
+    padding: 25px 15px 10px 15px;
 }
 
+/* Form Container */
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #fff;
+    background: var(--background-dark);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 12px var(--shadow-color);
     width: 90%;
-    max-width: 400px;
+    max-width: 800px; /* Wider on larger screens */
     border: 1px solid var(--border-color);
-    box-sizing: border-box;
     text-align: center;
     position: relative;
 }
 
-.illustration {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.illustration img {
-    max-width: 200px;
-    height: auto;
-    border-radius: 40%;
-}
-
+/* Layout for Larger Screens */
 .form-container {
     width: 100%;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
-h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: var(--primary-color);
+/* Form Fields */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 48%; /* Two columns on large screens */
+    text-align: left;
 }
 
 label {
-    display: block;
-    text-align: left;
     font-weight: 500;
-    margin-top: 10px;
+    margin-bottom: 20px;
     color: var(--primary-color);
     font-size: 1rem;
+    padding-top: 20px;
 }
 
 input {
@@ -86,13 +85,11 @@ input {
     padding: 12px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    margin-top: 5px;
     font-size: 1rem;
     background: #f9f9f9;
     color: var(--primary-color);
     transition: all 0.3s ease-in-out;
     box-shadow: inset 0px 2px 5px var(--shadow-color);
-    box-sizing: border-box;
 }
 
 input:focus {
@@ -102,6 +99,7 @@ input:focus {
     background: #fff;
 }
 
+/* Password Input */
 .password-container {
     position: relative;
     width: 100%;
@@ -127,6 +125,7 @@ input:focus {
     color: var(--secondary-color);
 }
 
+/* Submit Button */
 .form-btn {
     background: var(--primary-color);
     color: white;
@@ -159,11 +158,43 @@ a:hover {
     color: var(--secondary-color);
 }
 
-@media (max-width: 480px) {
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .container {
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    .form-container {
+        flex-direction: column; /* Stacks inputs in a column */
+        gap: 15px;
+    }
+
+    .form-group {
+        width: 100%; /* Full width on smaller screens */
+    }
+
     h1 {
         font-size: 2rem;
     }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
     .form-btn {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    input {
+        padding: 10px;
         font-size: 0.9rem;
     }
 }

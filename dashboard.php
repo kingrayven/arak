@@ -12,6 +12,8 @@ if (!isset($_SESSION['store_manager'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drizzle Dashboard</title>
+    <link rel="icon" href="css/img/logo.png" type="image/png" sizes="16x16">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
